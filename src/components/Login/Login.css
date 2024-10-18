@@ -1,0 +1,145 @@
+.lgnSection {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    color: #fff;
+    padding: 0 20px;
+    /* Added padding for smaller screens */
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.img-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-fluid {
+    width: 100%;
+    height: auto;
+    max-width: 1000px;
+    /* Limits image size */
+    border-radius: 10px;
+}
+
+.bg-transparent {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+#emailLoginInput,
+#passwordlLoginInput {
+    margin: auto;
+    color: #fff;
+    width: 100%;
+    max-width: 430px;
+    height: 45px;
+    border-radius: 10px;
+    border: 1px solid #8a8a8a;
+}
+
+#emailLoginInput:focus,
+#passwordlLoginInput:focus {
+    border: 2px solid #fff;
+}
+
+#emailLoginInput::placeholder,
+#passwordlLoginInput::placeholder {
+    color: #9d9d9d;
+    opacity: 1;
+}
+
+.devsoptImg {
+    width: 155px;
+    height: 42px;
+}
+
+.lgnBtn {
+    margin-top: 40px;
+    width: 100%;
+    max-width: 430px;
+}
+
+.d-flex.justify-content-between {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* Ensures vertical alignment */
+}
+
+.rememberMeCheckbox {
+    margin-left: 0;
+    color: #8a8a8a;
+}
+
+.forgot-password {
+    color: #9d9d9d;
+    text-decoration: none;
+    margin-left: auto;
+    /* Pushes to the far right */
+}
+
+.forgot-password:hover {
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .lgnSection {
+        padding: 0 10px;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .form-column,
+    .img-column {
+        width: 100%;
+        text-align: center;
+    }
+
+    .img-fluid {
+        width: 90%;
+        /* Scales the image on smaller screens */
+        height: auto;
+        margin-bottom: 20px;
+        /* Adds space between image and form */
+    }
+
+    .lgnBtn {
+        width: 100%;
+    }
+
+    .rememberMeCheckbox,
+    .forgot-password {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .d-flex.justify-content-between {
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 576px) {
+
+    #emailLoginInput,
+    #passwordlLoginInput {
+        width: 100%;
+    }
+
+    .lgnBtn {
+        width: 100%;
+    }
+
+    .devsoptImg {
+        width: 120px;
+        height: 40px;
+    }
+}

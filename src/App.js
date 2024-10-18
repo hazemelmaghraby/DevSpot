@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import LoginForm from './components/Login/Login';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const app = () => {
+const App = () => {
     return (
-        <div>app</div>
+        <>
+            <LoginForm />
+        </>
     )
 }
 
-export default app
+export default App;
