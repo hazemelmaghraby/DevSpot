@@ -1,13 +1,13 @@
 import React from 'react';
-// import LoginForm from './components/Login/Login';
+import LoginForm from './components/Login/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Register from './components/register/Register';
 
 const App = () => {
     return (
         <>
-            {/* <LoginForm /> */}
-            <Register />
+            <LoginForm />
+            {/* <Register /> */}
         </>
     )
 }

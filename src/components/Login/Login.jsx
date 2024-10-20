@@ -28,7 +28,7 @@ const LoginForm = () => {
         <div className='lgnSection'>
             <Container>
                 <Row className="d-flex align-items-center">
-                    <Col md={6} className="form-column h-">
+                    <Col md={6} className="form-column">
                         <h3 className='devspot'><img src={devspot} alt="devsopt" className='logo' /></h3>
                         <h3 className="text-center mt-4">Welcome Back</h3>
                         <p className="text-center mt-4 text-white-50">Enter your login details to login</p>
@@ -50,7 +50,7 @@ const LoginForm = () => {
                                     type="password"
                                     placeholder="Password"
                                     value={password}
-                                    className='bg-transparent mb-4 '
+                                    className='bg-transparent mb-4'
                                     onChange={(e) => setPassword(e.target.value)}
                                     id='passwordlLoginInput'
                                 />
@@ -62,7 +62,7 @@ const LoginForm = () => {
                                     label="Keep Me Logged In"
                                     checked={rememberMe}
                                     onChange={(e) => setRememberMe(e.target.checked)}
-                                    className='rememberMeCheckbox  d-inline-block'
+                                    className='rememberMeCheckbox d-inline-block'
                                 />
                                 <a href="#" className="forgot-password d-inline-block">Forgot Password?</a>
                             </div>
@@ -81,6 +81,7 @@ const LoginForm = () => {
                 </Row>
             </Container>
         </div>
+
     );
 };
 
