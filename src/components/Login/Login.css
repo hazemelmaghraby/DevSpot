@@ -95,7 +95,7 @@
 @media (max-width: 768px) {
     .lgnSection {
         flex-direction: column;
-        height: auto;
+        height: 100vh;
     }
 
     .form-column,
@@ -103,6 +103,11 @@
         width: 100%;
         text-align: center;
     }
+
+    .img-fluid {
+        display: none;
+    }
+
 
     .img-fluid {
         width: 100%;
