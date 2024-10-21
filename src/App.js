@@ -1,14 +1,21 @@
 import React from 'react';
-import LoginForm from './components/Login/Login';
+import LoginForm from './components/Registeration/Login/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Register from './components/register/Register';
+import Register from './components/Registeration/register/Register';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './components/Home/Home';
+import Dashboard from './components/Registeration/Dashboard/Dashboard';
 
 const App = () => {
     return (
-        <>
-            <LoginForm />
-            {/* <Register /> */}
-        </>
+        <Router>
+            <Routes>
+                <Route path="/login" element={<LoginForm />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path='/' element={<Home />} />
+            </Routes>
+        </Router>
     )
 }
 

@@ -1,0 +1,78 @@
+/* General page layout */
+.login-page {
+    background-color: #000;
+    /* Dark background */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff !important;
+}
+
+.login-box {
+    background-color: #0d1117;
+    /* Darker box for login form */
+    border-radius: 8px;
+}
+
+.logo {
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.input-field {
+    background-color: #0d1117 !important;
+    border: none;
+    color: #ffffff !important;
+    border-radius: 4px;
+    height: 50px;
+    padding-left: 15px;
+}
+
+.input-field::placeholder {
+    background-color: transparent;
+    color: #ffffff !important;
+}
+
+.input-field:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(56, 139, 253, 0.25);
+}
+
+.forgot-password {
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    color: #1f6feb;
+}
+
+.login-btn {
+    background-color: #238636;
+    border: none;
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.login-btn:hover {
+    background-color: #2ea043;
+}
+
+.sign-up {
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+.sign-up:hover {
+    color: #1f6feb;
+}
+
+/* Responsive adjustments */
+/* @media (max-width: 768px) {
+    .login-box {
+        padding: 20px;
+    }
+} */
