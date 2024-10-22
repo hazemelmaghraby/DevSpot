@@ -86,88 +86,93 @@ const ProfileConfig = () => {
     };
 
     return (
-        <div className="container mt-5">
-            <div className="card shadow-lg animate__animated animate__fadeIn">
-                <div className="card-header text-center bg-primary text-white">
-                    <h2 className="animate__animated animate__bounce">Configure Your Profile</h2>
-                </div>
-                <div className="card-body">
-                    <form onSubmit={handleSubmit}>
-                        {/* Profile Picture Upload */}
-                        <div className="form-group mb-4 text-center">
-                            <label htmlFor="profile-picture" className="form-label">Upload Profile Picture:</label>
-                            <div className="profile-picture-wrapper">
-                                <img
-                                    src={profilePicture ? profilePicture : defaultAvatar}
-                                    alt="Profile Preview"
-                                    className="profile-picture img-fluid"
-                                />
-                            </div>
-                            <input
-                                type="file"
-                                id="profile-picture"
-                                accept="image/*"
-                                className="form-control mt-3"
-                                onChange={handleProfilePictureChange}
-                            />
-                        </div>
-
-                        {/* Majors Selection */}
-                        <div className="form-group mb-4 animate__animated animate__fadeInUp">
-                            <label className="form-label">Choose Your Majors:</label>
-                            <div className="row">
-                                {majorsOptions.map((major, index) => (
-                                    <div key={index} className="col-6 col-md-4">
-                                        <div className="form-check custom-hover">
-                                            <input
-                                                type="checkbox"
-                                                className="form-check-input"
-                                                id={major}
-                                                value={major}
-                                                onChange={handleMajorChange}
-                                            />
-                                            <label className="form-check-label" htmlFor={major}>
-                                                {major}
-                                            </label>
-                                        </div>
+        <section className='w-full profileConfig'>
+            <div className="container mt-5 text-white">
+                <div className="card shadow-lg animate__animated animate__fadeIn bg-dark">
+                    <div className="card-header text-center bg-primary text-white">
+                        <h2 className="animate__animated animate__bounce">Configure Your Profile</h2>
+                    </div>
+                    <div className="card-body">
+                        <form onSubmit={handleSubmit}>
+                            {/* Profile Picture Upload */}
+                            <div className="form-group mb-4 text-center">
+                                <div className="profile-picture-wrapper position-relative">
+                                    <img
+                                        src={profilePicture ? profilePicture : defaultAvatar}
+                                        alt="Profile Preview"
+                                        className="profile-picture img-fluid"
+                                    />
+                                    {/* Overlay that appears on hover */}
+                                    <div className="overlay">
+                                        <span>Choose your profile picture</span>
+                                        <input
+                                            type="file"
+                                            accept="image/*"
+                                            className="file-input"
+                                            onChange={handleProfilePictureChange}
+                                        />
                                     </div>
-                                ))}
+                                </div>
                             </div>
-                        </div>
 
-                        {/* Technologies Overview (Appears based on majors selection) */}
-                        {selectedMajors.length > 0 && getTechOptions().length > 0 && (
+                            {/* Majors Selection */}
+                            <h1 className='ProfileUsernameConfigPage'>John Deo Ybasha</h1>
                             <div className="form-group mb-4 animate__animated animate__fadeInUp">
-                                <label className="form-label">Technologies Overview:</label>
+                                <label className="form-label text-white">Choose Your Majors:</label>
                                 <div className="row">
-                                    {getTechOptions().map((tech, index) => (
+                                    {majorsOptions.map((major, index) => (
                                         <div key={index} className="col-6 col-md-4">
                                             <div className="form-check custom-hover">
                                                 <input
                                                     type="checkbox"
                                                     className="form-check-input"
-                                                    id={tech}
-                                                    value={tech}
-                                                    onChange={handleTechChange}
+                                                    id={major}
+                                                    value={major}
+                                                    onChange={handleMajorChange}
                                                 />
-                                                <label className="form-check-label" htmlFor={tech}>
-                                                    {tech}
+                                                <label className="form-check-label" htmlFor={major}>
+                                                    {major}
                                                 </label>
                                             </div>
                                         </div>
                                     ))}
                                 </div>
                             </div>
-                        )}
 
-                        {/* Submit Button */}
-                        <div className="text-center">
-                            <button type="submit" className="btn btn-success btn-lg animate__animated animate__pulse">Save Profile</button>
-                        </div>
-                    </form>
+                            {/* Technologies Overview */}
+                            {selectedMajors.length > 0 && getTechOptions().length > 0 && (
+                                <div className="form-group mb-4 animate__animated animate__fadeInUp">
+                                    <label className="form-label">Technologies Overview:</label>
+                                    <div className="row">
+                                        {getTechOptions().map((tech, index) => (
+                                            <div key={index} className="col-6 col-md-4">
+                                                <div className="form-check custom-hover">
+                                                    <input
+                                                        type="checkbox"
+                                                        className="form-check-input"
+                                                        id={tech}
+                                                        value={tech}
+                                                        onChange={handleTechChange}
+                                                    />
+                                                    <label className="form-check-label" htmlFor={tech}>
+                                                        {tech}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Submit Button */}
+                            <div className="text-center">
+                                <button type="submit" className="btn btn-warning btn-lg animate__animated animate__pulse">Save Profile</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
