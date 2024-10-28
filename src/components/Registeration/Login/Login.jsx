@@ -65,7 +65,7 @@ const LoginForm = () => {
 
                                         <div className="text-center mt-4">
                                             <p className="text-white">
-                                                Don’t have an account? <a href="#" className="sign-up">Sign up now</a>
+                                                Don’t have an account? <a href="/register" className="sign-up">Sign up now</a>
                                             </p>
                                         </div>
                                     </Form>

@@ -1,0 +1,105 @@
+.registerMain {
+    background: radial-gradient(circle at bottom, #04284b, #051017 62%);
+    height: 100vh;
+}
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.forContainer {
+    padding: 20px 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+    width: 450px;
+    text-align: center;
+    min-height: 500px;
+}
+
+.tabs {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #1a1d23;
+    border-radius: 20px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.tab-link {
+    flex: 1;
+    padding: 8px 0;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: #a0a3a8;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.tab-link.active {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.inputField {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #2c2f36;
+    background-color: #1e2126;
+    color: #ffffff;
+    font-size: 14px;
+    width: 100%;
+    /* Set width to full by default */
+}
+
+.inputField:focus {
+    outline: none;
+    border: 1px solid #007bff;
+    background-color: #1e2126;
+    color: #ffffff !important;
+}
+
+.inputField::placeholder {
+    color: #a0a3a8;
+}
+
+.names {
+    display: flex;
+    gap: 20px;
+}
+
+.names .inputField {
+    width: 100%;
+    /* Each inputField within .names takes equal width */
+    flex: 1;
+    /* This ensures each input field takes 50% of the .names container */
+}
+
+.forContainer .lgnBtn {
+    width: 50%;
+    height: 45px;
+    background: #133a61;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: aliceblue;
+    font-weight: 600;
+    display: block;
+    margin: 30px auto;
+}
+
+.forContainer .lgnBtn:hover {
+    background: #0e2740;
+    border: none;
+    color: aliceblue;
+}
