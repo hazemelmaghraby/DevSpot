@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home/Home';
 import Dashboard from './components/Registeration/Dashboard/Dashboard';
 import ProfileConfig from './components/Registeration/register/ProfileConfig/ProfileConfig';
+import NavBar from './components/Navbar/NavBar';
 
 const App = () => {
     return (
@@ -15,7 +16,11 @@ const App = () => {
                 <Route path="/profile-config" element={<ProfileConfig />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/dashboard" element={<Dashboard />} />
-                <Route path='/' element={<Home />} />
+                <Route path='/' element={
+                    (
+                        <Home />
+                    )
+                } />
             </Routes>
         </Router>
     )

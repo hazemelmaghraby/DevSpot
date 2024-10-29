@@ -130,7 +130,7 @@ const ProfileConfig = () => {
                                                     value={major}
                                                     onChange={handleMajorChange}
                                                 />
-                                                <label className="form-check-label" htmlFor={major}>
+                                                <label className="formCheckLabel" htmlFor={major}>
                                                     {major}
                                                 </label>
                                             </div>
@@ -154,7 +154,7 @@ const ProfileConfig = () => {
                                                         value={tech}
                                                         onChange={handleTechChange}
                                                     />
-                                                    <label className="form-check-label" htmlFor={tech}>
+                                                    <label className="formCheckLabel" htmlFor={tech}>
                                                         {tech}
                                                     </label>
                                                 </div>

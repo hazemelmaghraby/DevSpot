@@ -20,14 +20,37 @@
 }
 
 .wrapperrr {
-    background: radial-gradient(circle at bottom, #0e2740, #051017 62%);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    position: relative;
+    background: linear-gradient(#010d19, #0A74DA0D 95%);
     padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
     color: aliceblue;
     margin-top: 100px;
-    border-radius: 10px;
 }
+
+.wrapperrr::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    padding: 2px;
+    background: linear-gradient(135deg,
+            #5a5f64 0%,
+            #000000 25%,
+            #000000 75%,
+            #5a5f64 100%);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    pointer-events: none;
+}
+
+
 
 .paralgn {
     color: #86919b
@@ -42,17 +65,17 @@
     width: 100%;
     height: 50px;
     margin: 30px 0;
-    background: #051017;
+    background: transparent;
     border: none;
     border-radius: 8px;
     border: 2px solid rgba(255, 255, 255, 0.2);
-    color: aliceblue;
+    color: #ffffff;
     padding: 5px 4px 5px 10px;
 
 }
 
 .wrapperrr .LgnInputBox::placeholder {
-    color: aliceblue !important;
+    color: #ffffff !important;
 }
 
 
@@ -65,13 +88,13 @@
 }
 
 .LgnInputBox:focus {
-    border: 2px solid #0e2740 !important;
+    border: 2px solid #0783ff !important;
     box-shadow: none !important;
 
 }
 
 .input-field::placeholder {
-    color: #374045 !important;
+    color: #828c94 !important;
 }
 
 
@@ -89,9 +112,10 @@
 } */
 
 .wrapperrr .remember-forget {
+    color: #848e98 !important;
     display: flex;
     justify-content: space-between;
-    font-size: 14.5px;
+    font-size: 15.5px;
     margin-bottom: 10px;
 }
 
@@ -100,15 +124,15 @@
     align-items: center;
     cursor: pointer;
     gap: 3px;
-    color: aliceblue;
+    color: #848e98 !important;
+
 }
 
 .remember-forget label input {
     margin-right: 4px;
-    color: aliceblue;
-    accent-color: #0e2740;
     cursor: pointer;
     background-color: transparent;
+    color: #848e98 !important;
 }
 
 .remember-forget label input:checked {
@@ -117,17 +141,18 @@
 }
 
 .remember-forget a {
-    color: aliceblue;
+    color: rgb(0, 136, 255);
     text-decoration: none;
 }
 
 .wrapperrr button {
     width: 50%;
     height: 45px;
-    background: #133a61;
+    background: #006cd8;
+    /*      background: blue;*/
     border: none;
     outline: none;
-    border-radius: 40px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     font-size: 16px;

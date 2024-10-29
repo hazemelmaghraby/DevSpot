@@ -1,9 +1,15 @@
+.registerHeading {
+    font-size: 20px;
+}
+
 .registerMain {
+
     background: radial-gradient(circle at bottom, #04284b, #051017 62%);
     height: 100vh;
 }
 
 .register-container {
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,18 +18,43 @@
 }
 
 .forContainer {
+    position: relative;
+    background: linear-gradient(#010d19, #0A74DA0D 95%);
     padding: 20px 10px;
     border-radius: 10px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
     width: 450px;
     text-align: center;
     min-height: 500px;
+    border: none;
+}
+
+.forContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    padding: 2px;
+    background: linear-gradient(135deg,
+            #5a5f64 0%,
+            #000000 25%,
+            #000000 75%,
+            #5a5f64 100%);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    pointer-events: none;
 }
 
 .tabs {
-    width: 100%;
+    width: 50%;
+    margin-top: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: #1a1d23;
     border-radius: 20px;
     padding: 5px;
@@ -52,7 +83,7 @@
     margin: 10px 0;
     border-radius: 8px;
     border: 1px solid #2c2f36;
-    background-color: #1e2126;
+    background-color: transparent;
     color: #ffffff;
     font-size: 14px;
     width: 100%;
@@ -62,8 +93,8 @@
 .inputField:focus {
     outline: none;
     border: 1px solid #007bff;
-    background-color: #1e2126;
     color: #ffffff !important;
+    background-color: #2c2f36;
 }
 
 .inputField::placeholder {
@@ -85,7 +116,7 @@
 .forContainer .lgnBtn {
     width: 50%;
     height: 45px;
-    background: #133a61;
+    background: #0d85fc;
     border: none;
     outline: none;
     border-radius: 40px;
