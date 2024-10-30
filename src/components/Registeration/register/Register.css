@@ -131,7 +131,7 @@
     background: #0d85fc;
     border: none;
     outline: none;
-    border-radius: 40px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     font-size: 16px;
@@ -145,4 +145,22 @@
     background: #0e2740;
     border: none;
     color: aliceblue;
+}
+
+.registerButton {
+    width: 100%;
+    height: 45px;
+    border-radius: 10px;
+    background-color: #0A74DA;
+    color: aliceblue;
+    font-weight: 600;
+    margin: 30px auto;
+    border: none;
+}
+
+.registerButton:hover {
+    background-color: #0e2740 !important;
+    border: none;
+    color: aliceblue;
+    border: none;
 }

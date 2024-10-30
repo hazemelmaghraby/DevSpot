@@ -40,6 +40,9 @@ const Register = () => {
               {activeTab === 'company' && (
                 <RegisterCompany />
               )}
+              <div className="register-footer">
+                <p className="text-white">Already have an account? <a href="/login" style={{ color: '#0A74DA', textDecoration: 'none' }}>Login</a></p>
+              </div>
             </div>
           </div>
         </Container>

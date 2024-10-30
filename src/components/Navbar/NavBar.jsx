@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
-import './Navbar.css'; // Import custom CSS for styling
-import { Form, Button, Alert, Badge } from "react-bootstrap";
-import styled from 'styled-components';
+import './Navbar.css';
 import { useNavigate } from 'react-router-dom';
-
 
 const Navbar = () => {
     const [isMenuOpen, setMenuOpen] = useState(false);
-
-    const navigate = useNavigate(); // Initialize navigate function
-
+    const navigate = useNavigate();
 
     const toggleMenu = () => {
         setMenuOpen(!isMenuOpen);
@@ -24,20 +19,16 @@ const Navbar = () => {
                 <li><a href="#about" className="navLink">About Us</a></li>
                 <li><a href="#contact" className="navLink">Contact</a></li>
             </ul>
-            <form class="d-flex" role="search">
+            <div className="d-flex" role="search">
                 <input className="form-control me-2 homeNavbarSearchBar" type="search" placeholder="Search" aria-label="Search" />
-                <div className="lgnBtnDiv">
-                    <button
-                        type="button"
-                        className="homeLgnBtnn"
-                        onClick={() => navigate('/login')} // Navigate to /login
-                    >
-                        Login
-                    </button>
-
-                </div>
-            </form>
-
+                <button
+                    type="button"
+                    className="homeLgnBtnn"
+                    onClick={() => navigate('/login')}
+                >
+                    Login
+                </button>
+            </div>
             <div className="navMenuToggle" onClick={toggleMenu}>
                 <span className="navMenuIcon">&#9776;</span>
             </div>
