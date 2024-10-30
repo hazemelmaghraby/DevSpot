@@ -1,29 +1,105 @@
 import React, { useState } from "react";
 import { Form, Button, Alert, InputGroup } from "react-bootstrap";
+import Select from 'react-select';
 
-const RegisterDeveloper = () => {
+
+const RegisterCompany = () => {
     const [formData, setFormData] = useState({
         companyName: "",
         companyServise: "",
         numEmployees: "",
         averageSalary: "",
         passwordCompany: "",
+        majorsRequired: [],
     });
+
+    const customSelectStyles = {
+        control: (provided) => ({
+            ...provided,
+            backgroundColor: 'transparent',
+            border: '1px solid #2c2f36',
+            borderRadius: '8px',
+            color: '#ffffff',
+            padding: '5px',
+            fontSize: '14px',
+            marginBottom: '10px',
+        }),
+        placeholder: (provided) => ({
+            ...provided,
+            color: '#a0a3a8',
+        }),
+        singleValue: (provided) => ({
+            ...provided,
+            color: '#ffffff',
+        }),
+        menu: (provided) => ({
+            ...provided,
+            backgroundColor: '#0e2740',
+            color: '#ffffff',
+            borderRadius: '10px',
+            ':hover': {
+                color: '#ffffff',
+            },
+        }),
+        multiValue: (provided) => ({
+            ...provided,
+            backgroundColor: '#007bff',
+            color: '#ffffff',
+            borderRadius: '5px',
+            ':hover': {
+                backgroundColor: '#0e2740',
+                color: 'black',
+            },
+        }),
+        multiValueLabel: (provided) => ({
+            ...provided,
+            color: '#ffffff',
+            ':hover': {
+                color: 'black',
+                backgroundColor: '#0e2740',
+            },
+        }),
+        multiValueRemove: (provided) => ({
+            ...provided,
+            color: '#ffffff',
+            ':hover': {
+                backgroundColor: '#0e2740',
+                color: '#595757',
+            },
+        }),
+    };
+
+    const majorRequiredOptions = [
+        { value: 'Software', label: 'Software' },
+        { value: 'Hardware', label: 'Hardware' },
+        { value: 'CyberSecurity', label: 'CyberSecurity' },
+        { value: 'AI', label: 'AI' },
+    ];
 
     const [error, setError] = useState("");
 
     const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.id]: e.target.value,
-        });
+        // If `e` is an array, it's from `react-select`
+        if (Array.isArray(e)) {
+            setFormData((prevState) => ({
+                ...prevState,
+                majorsRequired: e, // Directly set selected options array
+            }));
+        } else {
+            // Otherwise, it's a normal form event
+            const { id, value } = e.target;
+            setFormData((prevState) => ({
+                ...prevState,
+                [id]: value,
+            }));
+        }
     };
     const validateTextField = (index) => {
         return index.length <= 3 && /^[a-zA-Z]*$/.test(index);
     };
     const handleSubmit = (event) => {
         event.preventDefault();
-        const { companyName, companyServise, numEmployees, passwordCompany, averageSalary } = formData;
+        const { companyName, companyServise, numEmployees, passwordCompany, averageSalary, majorsRequired } = formData;
         // Validate text fields
         if (validateTextField(companyName)) {
             setError(
@@ -65,7 +141,7 @@ const RegisterDeveloper = () => {
     };
     return (
         <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="email" className="registerEmail" id="CompanyName">
+            <Form.Group controlId="CompanyName" className="registerCompanyName" id="CompanyName">
                 <Form.Control
                     id="CompanyName"
                     type="text"
@@ -75,17 +151,17 @@ const RegisterDeveloper = () => {
                     className="inputField"
                 />
             </Form.Group>
-            <Form.Group controlId="email" className="registerEmail" id="CompanyMail">
+            <Form.Group controlId="CompanyEmail" className="registerCompanyEmail" id="CompanyMail">
                 <Form.Control
-                    id="email"
-                    type="email"
+                    id="CompanyMail"
+                    type="CompanyMail"
                     placeholder="Company Mail"
-                    value={formData.email}
+                    value={formData.CompanyMail}
                     onChange={handleChange}
                     className="inputField"
                 />
             </Form.Group>
-            <Form.Group controlId="password">
+            <Form.Group controlId="CompanyPassword">
                 <Form.Control
                     id="CompanyPassword"
                     type="password"
@@ -95,7 +171,7 @@ const RegisterDeveloper = () => {
                     className="inputField"
                 />
             </Form.Group>
-            <Form.Group controlId="experience" style={{ width: "100%" }} id="EmployeesNumber">
+            <Form.Group controlId="EmployeesNumber" style={{ width: "100%" }} id="EmployeesNumber">
                 <Form.Control
                     id="EmployeesNumber"
                     as="select"
@@ -111,24 +187,21 @@ const RegisterDeveloper = () => {
                 </Form.Control>
             </Form.Group>
 
-            <Form.Group controlId="experience" style={{ width: "100%" }} id="MajorsRequired">
-                <Form.Control
+            <Form.Group controlId="MajorsRequired" style={{ width: "100%" }} id="MajorsRequired">
+                <Select
                     id="MajorsRequired"
-                    as="select"
-                    value={formData.majorsRequired}
-                    onChange={handleChange}
-                    className="inputField"
-                >
-                    <option value="Nul">Majors Required</option>
-                    <option value="Software">Software</option>
-                    <option value="Hardware">Hardware</option>
-                    <option value="CyberSecurity">CyberSecurity</option>
-                    <option value="AI">AI</option>
-                </Form.Control>
+                    isMulti
+                    options={majorRequiredOptions}
+                    value={formData.majorsRequired} // Shows the selected majors
+                    onChange={handleChange} // handleChange now supports this structure
+                    styles={customSelectStyles}
+                    classNamePrefix="select"
+                    placeholder="Select Majors Required"
+                />
+
             </Form.Group>
 
-            <Form.Group controlId="experience" style={{ width: "100%" }} id="AverageSalary">
-                <InputGroup.Text id="inputGroupPrepend2">@</InputGroup.Text>
+            <Form.Group controlId="AverageSalary" style={{ width: "100%" }} id="AverageSalary">
                 <Form.Control
                     id="AverageSalary"
                     as="select"
@@ -143,11 +216,11 @@ const RegisterDeveloper = () => {
                     <option value="4000-5000">$4000-$5000</option>
                 </Form.Control>
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" className="registerButton w-100">
                 Sign Up
             </Button>
         </Form>
     )
 }
 
-export default RegisterDeveloper
+export default RegisterCompany

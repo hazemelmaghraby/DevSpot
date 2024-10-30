@@ -1,5 +1,15 @@
 .Lgnmain {
-    background: radial-gradient(circle at bottom, #04284b, #051017 62%);
+    /* Set background color */
+    background-color: #0A0A0A;
+    /* Set up gradient with more stages before black */
+    background-image: radial-gradient(circle at bottom,
+            rgb(0, 35, 64) 0%,
+            rgb(0, 25, 48) 25%,
+            rgb(0, 18, 32) 45%,
+            rgb(0, 12, 24) 60%,
+            rgb(0, 8, 16) 75%,
+            rgb(0, 4, 8) 85%,
+            rgb(0, 0, 0) 100%);
     height: 100vh;
 
 }
@@ -40,8 +50,8 @@
     padding: 2px;
     background: linear-gradient(135deg,
             #5a5f64 0%,
-            #000000 25%,
-            #000000 75%,
+            transparent 25%,
+            transparent 75%,
             #5a5f64 100%);
     -webkit-mask:
         linear-gradient(#fff 0 0) content-box,

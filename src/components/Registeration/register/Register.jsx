@@ -4,6 +4,8 @@ import RegisterDeveloper from "./RegisterDeveloper";
 import RegisterCompany from "./RegisterCompany";
 import './Register.css';
 
+
+
 const Register = () => {
   const [activeTab, setActiveTab] = useState('developer');
 

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button, Alert, Badge } from "react-bootstrap";
+import { Form, Button, Alert } from "react-bootstrap";
+import Select from 'react-select';
 
-const Register = () => {
+
+const RegisterDeveloper = () => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -14,16 +16,67 @@ const Register = () => {
     majors: [] // Initialize majors as an empty array
   });
 
+  const customSelectStyles = {
+    control: (provided) => ({
+      ...provided,
+      backgroundColor: 'transparent',
+      border: '1px solid #2c2f36',
+      borderRadius: '8px',
+      padding: '5px',
+      fontSize: '14px',
+      marginBottom: '10px',
+    }),
+    placeholder: (provided) => ({
+      ...provided,
+      color: '#a0a3a8',
+    }),
+    multiValue: (provided) => ({
+      ...provided,
+      backgroundColor: '#007bff',
+      borderRadius: '5px',
+    }),
+    multiValueLabel: (provided) => ({
+      ...provided,
+      color: '#ffffff',
+    }),
+    multiValueRemove: (provided) => ({
+      ...provided,
+      color: '#ffffff',
+      ':hover': {
+        backgroundColor: '#0e2740',
+        color: '#ffffff',
+      },
+    }),
+  };
+
   const [error, setError] = useState("");
   const [salaryOptions, setSalaryOptions] = useState([]);
 
   const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData({
-      ...formData,
-      [id]: value
-    });
+    if (Array.isArray(e)) {
+      setFormData((prevState) => ({
+        ...prevState,
+        majors: e
+      }));
+    } else {
+      const { id, value } = e.target;
+      setFormData({
+        ...formData,
+        [id]: value
+      });
+    }
   };
+
+  const majorOptions = [
+    { value: 'Computer Science', label: 'Computer Science' },
+    { value: 'Software Engineering', label: 'Software Engineering' },
+    { value: 'Information Technology', label: 'Information Technology' },
+    { value: 'Cyber Security', label: 'Cyber Security' },
+    { value: 'Data Science', label: 'Data Science' },
+    { value: 'Artificial Intelligence', label: 'Artificial Intelligence' },
+    { value: 'Machine Learning', label: 'Machine Learning' },
+    { value: 'Frontend Developer', label: 'Frontend Developer' }
+  ];
 
   useEffect(() => {
     // Update salary options based on experience level
@@ -45,21 +98,20 @@ const Register = () => {
     }
   }, [formData.experience]);
 
-  const handleMajorSelect = (major) => {
-    setFormData((prevState) => {
-      const newMajors = prevState.majors.includes(major)
-        ? prevState.majors.filter((m) => m !== major) // Remove major if already selected
-        : [...prevState.majors, major]; // Add major if not already selected
-
-      return { ...prevState, majors: newMajors };
-    });
+  const handleMajorSelect = (e) => {
+    const { value, checked } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      majors: checked
+        ? [...prevState.majors, value] // Add if checked
+        : prevState.majors.filter((major) => major !== value) // Remove if unchecked
+    }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const { firstName, lastName, email, dateOfBirth, experience, gender, expectedSalary, password, majors } = formData;
+    const { firstName, lastName, email, dateOfBirth, gender, experience, expectedSalary, password, majors } = formData;
 
-    // Validate fields
     if (!firstName || !lastName || !email || !dateOfBirth || !gender || !experience || !expectedSalary || !password || majors.length === 0) {
       setError("Please fill out all fields and select at least one major.");
       return;
@@ -68,18 +120,6 @@ const Register = () => {
     setError("");
     console.log("Registration Form:", formData);
   };
-
-  const majorOptions = [
-    "Computer Science",
-    "Software Engineering",
-    "Information Technology",
-    "Cyber Security",
-    "Data Science",
-    "Artificial Intelligence",
-    "Machine Learning",
-    "Frontend Developer"
-  ];
-
   return (
     <Form onSubmit={handleSubmit}>
       {error && <Alert variant="danger">{error}</Alert>}
@@ -144,37 +184,18 @@ const Register = () => {
       </div>
 
       {/* Major Selection */}
-      <Form.Group className="registerMajor mb-3">
-        <Form.Label>Your Major</Form.Label>
-        <div className="d-flex flex-wrap gap-2">
-          {majorOptions.map((major) => (
-            <Badge
-              key={major}
-              onClick={() => handleMajorSelect(major)}
-              className={`p-2 ${formData.majors.includes(major) ? "bg-primary" : "bg-secondary"}`}
-              style={{ cursor: "pointer" }}
-            >
-              {major}
-            </Badge>
-          ))}
-        </div>
+      <Form.Group controlId="majors">
+        <Select
+          id="majors"
+          isMulti
+          options={majorOptions}
+          value={formData.majors}
+          onChange={handleChange}
+          styles={customSelectStyles}
+          classNamePrefix="select"
+          placeholder="Select Your Major(s)"
+        />
       </Form.Group>
-
-      {/* Display selected majors */}
-      <div className="d-flex flex-wrap mb-3">
-        {formData.majors.map((major) => (
-          <Badge
-            key={major}
-            pill
-            bg="primary"
-            className="me-2 mb-2"
-            style={{ cursor: "pointer" }}
-            onClick={() => handleMajorSelect(major)} // Clicking removes the selected major
-          >
-            {major} &times;
-          </Badge>
-        ))}
-      </div>
 
       {/* Years of Experience and Average Salary */}
       <div className="d-flex gap-3 mb-2 align-items-center justify-content-center">
@@ -231,4 +252,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default RegisterDeveloper;

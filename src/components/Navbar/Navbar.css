@@ -1,5 +1,6 @@
 /* Root styles */
 .navContainer {
+    border: 1px solid transparent;
     position: relative;
     display: flex;
     align-items: center;
@@ -8,9 +9,19 @@
     background-color: #111417;
     color: #fff;
     border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(10, 116, 218, 0.3);
+    /* box-shadow: 0px 0px 20px rgba(10, 116, 218, 0.3); */
+    margin: 10px 0;
+    height: 64px;
+
+
     /* Soft glow around the navbar */
 }
+
+/* border: 1px solid;
+
+border-image-source: linear-gradient(90deg, #0A74DA 0%, rgba(47, 47, 47, 0) 50.5%, #0A74DA 100%); */
+
+
 
 /* Gradient border using ::before (optional, for aesthetic touch) */
 .navContainer::before {
@@ -22,7 +33,7 @@
     height: 100%;
     border-radius: 10px;
     padding: 1px;
-    background: linear-gradient(45deg, #0963b9, #075097);
+    background: linear-gradient(90deg, #0A74DA -30%, rgba(47, 47, 47, 0) 50.5%, #0A74DA 120%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: destination-out;
     pointer-events: none;
@@ -30,16 +41,25 @@
 
 /* Search Bar Styling */
 .homeNavbarSearchBar {
-    height: 37px;
-    background-color: #333;
+    width: 152px;
+    height: 32px;
+    /* border: 1px solid #ffffff; */
+    box-shadow: inset -1px 0px 10px 0px rgba(255, 255, 255, 0.164);
+    background-color: #111417;
     color: white;
+    padding: 1px 2px 1px 8px;
     border: none;
-    padding: 0.5rem;
-    border-radius: 6px;
+    border-radius: 10px;
+    padding-bottom: 4px;
+
 }
 
 .homeNavbarSearchBar::placeholder {
+    /* padding: 0px; */
     color: #aaa;
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.5;
 }
 
 .homeNavbarSearchBar:focus {
@@ -63,7 +83,6 @@
     width: 90px;
     height: 36px;
     background-color: #0A74DA;
-    padding: 0.2rem 1rem;
     margin-left: 0.5rem;
     padding-bottom: 2px;
 }
@@ -76,6 +95,7 @@
 
 /* Logo Styling */
 .navLogo {
+    padding-bottom: 3px;
     font-size: 1.5rem;
     font-weight: bold;
     display: flex;
@@ -85,16 +105,25 @@
 
 /* Link styles */
 .navLinks {
-    padding-top: 9px;
+    padding-top: 15px;
     list-style: none;
     display: flex;
     gap: 1.5rem;
+}
+
+.navLinks:hover {
+    color: #8400ff !important;
+}
+
+.navLink:hover {
+    color: #0d7feb !important;
 }
 
 .navLink {
     color: #fff;
     text-decoration: none;
     font-size: 1rem;
+    transition: color 0.1s ease-in-out;
 }
 
 .navLink:hover {
