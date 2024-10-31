@@ -1,0 +1,56 @@
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: aliceblue;
+    justify-content: center;
+    position: relative;
+}
+
+.titleContainer {
+    width: 689px;
+    height: 146px;
+    gap: 0;
+    font-size: 1.2rem;
+    /* Adjust font size as desired */
+}
+
+.header-container h1 {
+    font-size: 61px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 73.2px;
+    background: linear-gradient(62.67deg, #FFFFFF 51.49%, #4E4E4E 95.38%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* This makes the gradient show through */
+}
+
+
+.paraContainer {
+    width: 288px;
+    height: 28px;
+    background-color: #1a2026;
+    border-radius: 10px;
+    padding: 4px 8px 4px 18px;
+    backdrop-filter: blur(35px);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    margin-left: 190px;
+    margin-top: 200px;
+}
+
+.titleContainer p {
+    font-size: 13px;
+    color: aliceblue;
+    font-weight: 400;
+    line-height: 19.5px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.uderParaHeader {
+    opacity: 60%;
+}

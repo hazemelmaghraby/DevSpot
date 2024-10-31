@@ -166,3 +166,28 @@ border-image-source: linear-gradient(90deg, #0A74DA 0%, rgba(47, 47, 47, 0) 50.5
         display: block;
     }
 }
+
+@media (min-width: 505px) {
+    .navContainer {
+        width: 100%;
+    }
+}
+
+/* Default display */
+.mobileSearchLogin {
+    display: none;
+}
+
+/* Hide search and login button outside toggle on small screens */
+@media (max-width: 505px) {
+    .desktopSearchLogin {
+        display: none;
+    }
+
+    .mobileSearchLogin {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+}
