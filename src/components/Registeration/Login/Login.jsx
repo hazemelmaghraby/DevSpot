@@ -54,7 +54,7 @@ const LoginForm = () => {
                                                 label="Keep me logged in"
                                                 checked={rememberMe}
                                                 onChange={(e) => setRememberMe(e.target.checked)}
-                                                className="remember-forget"
+                                                className="text-white"
                                             />
                                             <a href="#" className="forgot-password">Forgot password</a>
                                         </div>

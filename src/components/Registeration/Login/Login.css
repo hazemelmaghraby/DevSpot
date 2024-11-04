@@ -30,6 +30,7 @@
 }
 
 .wrapperrr {
+    width: 100%;
     position: relative;
     background: linear-gradient(#010d19, #0A74DA0D 95%);
     padding: 30px 40px;
@@ -129,6 +130,10 @@
     margin-bottom: 10px;
 }
 
+.LgnInputBox:focus-within {
+    border-color: #0783ff;
+}
+
 .remember-forget label {
     display: flex;
     align-items: center;
@@ -197,10 +202,14 @@
     border: none;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) and (max-width: 800px) {
+    .col-md-4 {
+        width: 70% !important;
+    }
+
     .wrapperrr {
-        padding: 20px;
-        box-shadow: none;
+        width: 80%;
+        max-width: 600px;
     }
 
     .wrapperrr h1 {
@@ -220,6 +229,15 @@
     }
 }
 
+@media (min-width: 991px) and (max-width: 800px) {
+    .col-md-4 {
+        width: 70% !important;
+        margin: 0 auto !important;
+    }
+}
+
+
+
 @media (max-width: 480px) {
     .wrapperrr {
         padding: 15px;
@@ -235,7 +253,6 @@
 
     .wrapperrr .remember-forget {
         flex-direction: column;
-        /* Stack on smaller screens */
         align-items: flex-start;
     }
 
