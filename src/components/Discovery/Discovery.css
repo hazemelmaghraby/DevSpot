@@ -1,0 +1,17 @@
+.discovery {
+    width: 100%;
+    position: relative;
+    background-color: transparent;
+    padding: 2rem 0;
+}
+
+.discovery__title {
+    margin-bottom: 2rem;
+}
+
+.discovery__heading {
+    color: var(--text-primary);
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+}
